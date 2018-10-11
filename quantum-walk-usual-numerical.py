@@ -116,9 +116,9 @@ def probabilityDistribution( psiInput ):
 #psi0asymmetric = [[1, 0, 1]]    # Ao=1  Bo=0
 psi0symmetric  = [ [1/mt.sqrt(2), 0,1], [ 1j/mt.sqrt(2), 0, 0] ]
 
-psi = psi0symmetric 
 
 ##### dynamics 
+psi = psi0symmetric 
 for t in  np.arange(1,nsteps,1):   
  psi = psiStep( psi )
  psi = psiGathering( psi )

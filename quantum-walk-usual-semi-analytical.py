@@ -17,7 +17,7 @@ nsteps = 100         # number of steps
 # Main Part: line 50
 
 
-# recursive method to obtain Ab and Bn
+# recursive method to obtain An and Bn
 def recursive_A_B(vecA, vecB):
  vecA2   = []
  vecB2   = []

@@ -5,13 +5,15 @@
 # [2] J.Dingerink: Quantum walks of an atom in an optical lattice, 2016 https://esc.fnwi.uva.nl/thesis/centraal/files/f1472237352.pdf
 # [3] Portugal, Renato. Quantum walks and search algorithms. Springer Science & Business Media, 2013.
 
-
 import math as mt
 import numpy   as   np
 from matplotlib import pylab as plt
 
 nsteps = 100
-# Main part: see line 70
+
+
+
+# Main part: see line 110
 
 
 
@@ -105,9 +107,6 @@ def probabilityDistribution( psiInput ):
 
 
 
-
-
-
 #####  MAIN PART 
 
 #print("Notation:  psi = [pre-factor(coefficient), position(walker), spin(coin)]\n") 
@@ -143,7 +142,7 @@ plt.plot(vecpos,vecprob, color='red', linestyle='dashed', marker='o', markerface
 plt.xlim(-nsteps,nsteps)
 plt.xlabel("Position")
 plt.ylabel("Probability")
-plt.title(" Numerical approach (table 1 of V.M.Kendon, 2006) \nQuantum Walk for {0} steps".format(nsteps))
+plt.title(" Numerical approach (table 1 of V.M.Kendon 2006) \nQuantum Walk for {0} steps".format(nsteps))
 plt.savefig("probability-distribution-numerical.png")
 
 

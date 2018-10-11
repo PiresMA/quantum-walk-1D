@@ -12,14 +12,36 @@ import numpy as np
 from matplotlib import pylab as plt
 
 nsteps = 100         # number of steps
+
+
+
+# Putting terms together to compute the probability distribution
+def recursive_A_B(vecA, vecB):
+ vecA2   = []
+ vecB2   = []
+
+ # Left boundary
+ vecA2.append( 0 ) 
+ vecB2.append( 0 ) 
+
+ # Other positions
+ for i in  np.arange(1,len(xpos)-1,1):    
+   vecA2.append( (vecA[i-1] + vecB[i-1])/mt.sqrt(2) ) 
+   vecB2.append( (vecA[i+1] - vecB[i+1])/mt.sqrt(2) ) 
+
+ # Right boundary
+ vecA2.append( 0 ) 
+ vecB2.append( 0 ) 
+
+ return vecA2,vecB2
+ 
+ 
+ 
+ 
+
 npos   = 2*nsteps+1  # number of positions
 xc     = nsteps      # central position = nsteps   #Index Start at 0
 
-
-#####  MAIN PART ???
-
-
-print(" Positions "  ) 
 xpos = np.arange(-nsteps, nsteps+1, 1)   
 
 
@@ -30,57 +52,30 @@ vecA[xc] =  1/mt.sqrt(2)
 vecB[xc] = 1j/cmt.sqrt(2)   
 
 
-#vecprob = []
-#for i in  np.arange(0,len(xpos),1):
-# vecprob.append( abs(vecA[i])**2 +  abs(vecB[i])**2  )
+##### Dynamics
+for t in  np.arange(1,nsteps,1):
+ vecA,vecB = recursive_A_B(vecA, vecB)
 
- 
-##### dynamics 
-for t in  np.arange(1,nsteps,1):   
- 
- vecprob = []
- vecA2   = []
- vecB2   = []
-
- # Left boundary
- vecA2.append( 0 ) 
- vecB2.append( 0 ) 
-
- # Other positions
- for i in  np.arange(1,len(xpos)-1,1):    
-  vecA2.append( (vecA[i-1] + vecB[i-1])/mt.sqrt(2) ) 
-  vecB2.append( (vecA[i+1] - vecB[i+1])/mt.sqrt(2) ) 
-
- # Right boundary
- vecA2.append( 0 ) 
- vecB2.append( 0 ) 
-
- vecA = vecA2
- vecB = vecB2
-
- # Get the occupancy probability distribution
- for i in  np.arange(0,len(xpos),1):
-  vecprob.append( abs(vecA[i])**2 +  abs(vecB[i])**2  )
+#print( np.around(np.array( vecA ),2) )
+#print( np.around(np.array( vecB ),2) )
 
 
-
-
-# only sites with  non-zero occupancy probability
-vecprob2 = []
-vecpos2  = []
+# Only sites with non-zero occupancy probability
+vecpos  = [ ]
+vecprob = [ ]
 for i in  np.arange(0,len(xpos),1):
- if vecprob[i]>0:
-  vecprob2.append( vecprob[i] )
-  vecpos2.append(     xpos[i] )
+ prob =  abs(vecA[i])**2 +  abs(vecB[i])**2  
+ if prob>0:
+  vecpos.append(  xpos[i] )
+  vecprob.append(  prob )
+   
 
 
-
-
-plt.plot(vecpos2,vecprob2, color='blue', linestyle='dashed', marker='o', markerfacecolor='blue', markersize=12)
+plt.plot(vecpos,vecprob, color='blue', linestyle='dashed', marker='o', markerfacecolor='blue', markersize=12)
 plt.xlim(-nsteps,nsteps)
 plt.xlabel("Position")
 plt.ylabel("Probability")
-plt.title(" Semi-analytical approach (pag. 27 of R.P. 2013) \nQuantum Walk for {0} steps".format(nsteps))
+plt.title(" Semi-analytical approach (pag. 27 of R.Portugal 2013) \nQuantum Walk for {0} steps".format(nsteps))
 plt.savefig("probability-distribution-semi-analytical.png")
 
 

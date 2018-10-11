@@ -14,8 +14,10 @@ from matplotlib import pylab as plt
 nsteps = 100         # number of steps
 
 
+# Main Part: line 50
 
-# Putting terms together to compute the probability distribution
+
+# recursive method to obtain Ab and Bn
 def recursive_A_B(vecA, vecB):
  vecA2   = []
  vecB2   = []
@@ -39,6 +41,13 @@ def recursive_A_B(vecA, vecB):
  
  
 
+ 
+ 
+ 
+ 
+ 
+ 
+# MAIN ṔART
 npos   = 2*nsteps+1  # number of positions
 xc     = nsteps      # central position = nsteps   #Index Start at 0
 

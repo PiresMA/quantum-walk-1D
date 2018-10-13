@@ -26,7 +26,7 @@ print nsteps
 
 
 
-# Putting terms together to compute the probability distribution
+# Computing An and Bn using a recursive method
 def recursive_A_B(vecA, vecB):
  vecA2   = []
  vecB2   = []

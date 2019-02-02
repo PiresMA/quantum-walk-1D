@@ -29,7 +29,6 @@ print nsteps
 
 # One Step:  1) Hadamard coin is flipped; 2) shift operator works on the state
 def psiStep( psiInput ):
- # This part is based on appendix B of [2]
  psiOutput  =  [ ]
  for elem in psiInput:
    if elem[2]   ==  0:  # if the Hadamard coin state is \0>

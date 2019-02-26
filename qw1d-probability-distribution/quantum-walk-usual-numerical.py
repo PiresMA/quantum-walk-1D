@@ -5,6 +5,7 @@
 # [2] J.Dingerink: Quantum walks of an atom in an optical lattice, 2016 https://esc.fnwi.uva.nl/thesis/centraal/files/f1472237352.pdf
 # [3] Portugal, Renato. Quantum walks and search algorithms. Springer Science & Business Media, 2013.
 
+import cmath as cmt
 import math as mt
 import numpy   as   np
 from matplotlib import pylab as plt
@@ -16,17 +17,25 @@ nsteps = 100
 # Main part: see line 110
 
 
+# quantum coin
+theta_degree = 45
+theta = mt.radians(theta_degree)
+c11 =  np.cos(theta)
+c12 =  np.sin(theta)
+c21 =  np.sin(theta)
+c22 = -np.cos(theta)
+
 
 # One Step:  1) Hadamard coin is flipped; 2) shift operator works on the state
 def psiStep( psiInput ):
  psiOutput  =  [ ]
  for elem in psiInput:
    if elem[2]   ==  0:  # if the Hadamard coin state is \0>
-    psiOutput.append([ elem[0]/mt.sqrt(2), elem[1]-1, 0]) # shift operator: S-
-    psiOutput.append([ elem[0]/mt.sqrt(2), elem[1]+1, 1]) # shift operator: S+
+    psiOutput.append([ c11*elem[0], elem[1]-1, 0]) # shift operator: S-
+    psiOutput.append([ c12*elem[0], elem[1]+1, 1]) # shift operator: S+
    elif elem[2] == 1:   # if the Hadamard coin state is \1>
-    psiOutput.append([  elem[0]/mt.sqrt(2), elem[1]-1, 0]) # shift operator: S-
-    psiOutput.append([ -elem[0]/mt.sqrt(2), elem[1]+1, 1]) # shift operator: S+   
+    psiOutput.append([ c21*elem[0], elem[1]-1, 0]) # shift operator: S-
+    psiOutput.append([ c22*elem[0], elem[1]+1, 1]) # shift operator: S+   
  return(psiOutput)
 
 

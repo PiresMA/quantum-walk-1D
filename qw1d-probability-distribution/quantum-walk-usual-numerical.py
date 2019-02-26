@@ -122,7 +122,8 @@ def probabilityDistribution( psiInput ):
 
 #####  time  = 0
 #psi0asymmetric = [[1, 0, 1]]    # Ao=1  Bo=0
-psi0symmetric  = [ [1/mt.sqrt(2), 0,1], [ 1j/mt.sqrt(2), 0, 0] ]
+psi0symmetric  = [ [np.cos(mt.radians(45)),0,1], [1j*np.cos(mt.radians(45)), 0, 0] ]
+
 
 psi = psi0symmetric 
 

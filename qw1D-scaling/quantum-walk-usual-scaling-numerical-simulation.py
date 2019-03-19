@@ -26,17 +26,24 @@ print nsteps
 
 
 
+# quantum coin
+theta_degree = 45
+c11 =  np.cos(mt.radians(theta_degree))
+c12 =  np.sin(mt.radians(theta_degree))
+c21 =  np.sin(mt.radians(theta_degree))
+c22 = -np.cos(mt.radians(theta_degree))
+
 
 # One Step:  1) Hadamard coin is flipped; 2) shift operator works on the state
 def psiStep( psiInput ):
  psiOutput  =  [ ]
  for elem in psiInput:
    if elem[2]   ==  0:  # if the Hadamard coin state is \0>
-    psiOutput.append([ elem[0]/mt.sqrt(2), elem[1]-1, 0]) # shift operator: S-
-    psiOutput.append([ elem[0]/mt.sqrt(2), elem[1]+1, 1]) # shift operator: S+
+    psiOutput.append([ c11*elem[0], elem[1]-1, 0]) # shift operator: S-
+    psiOutput.append([ c12*elem[0], elem[1]+1, 1]) # shift operator: S+
    elif elem[2] == 1:   # if the Hadamard coin state is \1>
-    psiOutput.append([  elem[0]/mt.sqrt(2), elem[1]-1, 0]) # shift operator: S-
-    psiOutput.append([ -elem[0]/mt.sqrt(2), elem[1]+1, 1]) # shift operator: S+   
+    psiOutput.append([ c21*elem[0], elem[1]-1, 0]) # shift operator: S-
+    psiOutput.append([ c22*elem[0], elem[1]+1, 1]) # shift operator: S+   
  return(psiOutput)
 
 

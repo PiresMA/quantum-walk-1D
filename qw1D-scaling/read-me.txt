@@ -1,7 +1,0 @@
-In your terminal type
-$ bash runner-python.bh &
-This will generate many data file in txt.
-
-For analysing the data type 
-$python quantum-walk-usual-scaling-analysis.py
-This will produce 2 figures in png.

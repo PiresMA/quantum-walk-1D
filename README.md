@@ -1,5 +1,5 @@
 # quantum-walk-1D
-This is a series of jupyter notebooks about 1D Quantum Walks:
+Summary:
 
 qw_01: 
 

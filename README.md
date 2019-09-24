@@ -9,6 +9,7 @@ qw_01:
 
 qw_02: 
 * Jensen-Shannon dissimilarity between  P_t(x) arising from the QW and CW
+* For comparison I also include the Hellinger distance
 
 qw_03 (coming soon)
 * Delocalization measures: Entropy and Inverse Participation Ratio (IPR)

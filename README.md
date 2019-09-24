@@ -1,4 +1,9 @@
 # quantum-walk-1D
+
+You can find a better visualization of my .ipynb at 
+https://nbviewer.jupyter.org/github/PiresMA/quantum-walk-1D/tree/master/ 
+
+
 Summary:
 
 qw_01: 

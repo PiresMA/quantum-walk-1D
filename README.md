@@ -3,7 +3,7 @@ Summary:
 
 qw_01: 
 
-* Probability distribution for the QW and classical walk (CW)
+* Probability distribution P_t(x) for the QW and classical walk (CW)
 * Scaling behavior of the main spreading measure, namely the standard deviation of P_t(x) 
 
 

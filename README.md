@@ -25,11 +25,3 @@ qw_03 (coming soon)
 
 qw_04 (coming soon)
 * Von neumann entanglement entropy
-
-
-qw_05 (coming soon)
-* Anderson localization
-
-
-qw_06 (coming soon)
-* non-Markovianity 

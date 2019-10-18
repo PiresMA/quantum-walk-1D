@@ -20,8 +20,8 @@ qw_02:
 
 
 qw_03 (coming soon)
-* Delocalization measures: Entropy and Inverse Participation Ratio (IPR)
+* Distributional measures: Shannon entropy and Inverse Participation Ratio (IPR)
 
 
 qw_04 (coming soon)
-* Von neumann entanglement entropy
+* Von Neumann entanglement entropy

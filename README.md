@@ -1,6 +1,6 @@
 # quantum-walk-1D
 
-Disclaimer: The code presented here is for educational purposes and therefore has not been developed in a sophisticated manner considering all possible nuances. 
+Disclaimer: The code presented here is for educational purposes. Consequently, it has not been engineered for optimal performance.
 
 
 (In progress)
